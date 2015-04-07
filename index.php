@@ -40,6 +40,7 @@ include 'functions.php';
 // File modification check
 
 	$remote_file_to_check = '';
+  $time_zone_to_use = 'Europe/Oslo';
 
 // System information
 
@@ -73,8 +74,8 @@ if($mailStatus == 1){$mail_status_class = 'success';} else {$mail_status_class =
 
 // Checking a file modification time and age
 
-$status= FileTime($remote_file_to_check);
-$age = FileAge($remote_file_to_check);
+$status= FileTime($remote_file_to_check,$time_zone_to_use);
+$age = FileAge($remote_file_to_check, $time_zone_to_use);
 
 if ($status == 0){
 		$file_time_class = 'success';

@@ -38,8 +38,8 @@ function retrieve_remote_file_time($url){
      
      return $filetime;
 }
-function FileAge($file_name){
-  date_default_timezone_set('Europe/Oslo');
+function FileAge($file_name, $time_zone){
+  date_default_timezone_set(''.$time_zone.'');
   $FileCreationTime = retrieve_remote_file_time($file_name);
   if($FileCreationTime != -1){
       $FileCreationTime = date('c',$FileCreationTime);
@@ -58,9 +58,9 @@ function FileAge($file_name){
   return $FileAge;
 }
 
-function FileTime($file_name){
+function FileTime($file_name, $time_zone){
 
-  date_default_timezone_set('Europe/Oslo');
+  date_default_timezone_set(''.$time_zone.'');
   $FileCreationTime = retrieve_remote_file_time($file_name);
   
   if($FileCreationTime != -1){
@@ -73,7 +73,7 @@ function FileTime($file_name){
       $FileAge = $interval->format('%i');
   
      if($FileAge <= 5) $status = 0; //ok Newer than 5 mins
-     if($FileAge >= 6 && $FileAge <= 30) $status = 1; // Mellom 6 og 30 min
+     if($FileAge >= 6 && $FileAge <= 30) $status = 1; // OK! Between 6 and 30 mins
      if($FileAge >= 31) $status = 2; // Over 30 min
   
   
