@@ -11,6 +11,8 @@ Configure the variables in the index.php file.
 The tracking of a files modification time and age can be useful in many ways. I'm using it to track a weatherstations generated data that is 
 pushed from a local server (at home) to a VPS. If you're not using that part, comment out the HTML code in index.php.
 
+There is a working example at [status.iurl.no](http://status.iurl.no)
+
 ##Important!
 
 This script works for me. That does not imply that it works for you - without any modifications.
